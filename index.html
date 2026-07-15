@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trevor Travis — Academic Editing &amp; Writing Coach | US &amp; Canada</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="description" content="Academic editing, dissertation coaching, and research support for graduate students and professionals across the United States and Canada. APA, MLA, and Chicago formatting.">
+<meta name="keywords" content="academic editing, dissertation coach, thesis editing, proofreading service, personal statement editing, research support, citation formatting">
+<link rel="canonical" href="https://www.trevortravis.com/">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trevor Travis — Academic Editing & Writing Coach">
+<meta property="og:description" content="Editing, coaching, and research support for students and academics across the US and Canada.">
+<meta property="og:url" content="https://www.trevortravis.com/">
+<meta property="og:image" content="https://www.trevortravis.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:image" content="https://www.trevortravis.com/og-image.png">
+<meta name="twitter:card" content="summary">
+
+<!--
+  ============================================================
+  SITE STATUS — filled in with real details as of last edit
+  ============================================================
+  - Name, location (Texas), and 200+ projects stat are real.
+  - Testimonials section was removed (no real quotes yet) —
+    add it back once you have 2-3 genuine client quotes.
+  - Portfolio cards are labeled as illustrative examples, not
+    real case studies — swap in real ones (with permission)
+    whenever you're ready.
+  - No specific degree/credential is listed in the About or
+    Team sections since none was provided — add yours in if
+    you want it to appear.
+  - Domain is set to trevortravis.com as a placeholder —
+    update every instance (canonical, og:url, robots.txt,
+    sitemap.xml) once you register your real domain.
+  - Payment is referenced as "via Stripe" — you mentioned
+    handling the Stripe integration yourself; the pricing
+    section's "Get a quote" buttons currently link to the
+    contact form, not a live checkout.
+  - The contact form does not submit anywhere yet — it's styled
+    and ready, but needs a backend (Formspree or Netlify Forms).
+  - SEO/AEO: the JSON-LD block near the closing </body> tag
+    has been updated with real name/domain — double check it
+    once you have a final domain.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink: #14213D;
+    --ink-soft: #1F2D4E;
+    --paper: #F6F4EE;
+    --paper-dim: #EDEAE0;
+    --card: #FFFFFF;
+    --charcoal: #26282B;
+    --gray: #6B6E76;
+    --brass: #9C7A3C;
+    --brass-bright: #B4924F;
+    --line: #DAD5C6;
+    --max: 1120px;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,244,238,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px;
+    max-width:var(--max); margin:0 auto;
+    position:relative;
+  }
+  .logo{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:1.25rem;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .logo span{ color:var(--brass); }
+  .nav-links{
+    display:flex; gap:36px;
+    list-style:none;
+  }
+  .nav-links a{
+    text-decoration:none;
+    font-size:0.92rem;
+    font-weight:500;
+    color:var(--ink);
+    position:relative;
+    padding-bottom:3px;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute; left:0; bottom:0;
+    width:0; height:1px;
+    background:var(--brass);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    background:var(--ink);
+    color:var(--paper) !important;
+    padding:10px 20px;
+    border-radius:2px;
+    font-size:0.88rem;
+    font-weight:600;
+    text-decoration:none;
+  }
+  .nav-toggle{ display:none; }
+
+  @media (max-width: 900px){
+    .nav-links{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:24px 32px;
+      gap:20px;
+      box-shadow:0 16px 32px -20px rgba(20,33,61,0.28);
+      z-index:60;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-toggle{
+      display:block;
+      background:none; border:none;
+      font-size:1.6rem;
+      color:var(--ink);
+      cursor:pointer;
+      line-height:1;
+    }
+  }
+
+  /* ---------- ELEMENTS ---------- */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px; height:1px;
+    background:var(--brass);
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px;
+    font-size:0.95rem;
+    font-weight:600;
+    text-decoration:none;
+    border-radius:2px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+    font-family:var(--sans);
+  }
+  .btn-primary{ background:var(--ink); color:var(--paper); }
+  .btn-primary:hover{ background:var(--ink-soft); transform:translateY(-1px); }
+  .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--ink); }
+  .btn-ghost:hover{ background:var(--ink); color:var(--paper); }
+
+  section{ padding:100px 0; }
+  @media (max-width:780px){ section{ padding:64px 0; } }
+
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(1.7rem, 3vw, 2.4rem);
+    color:var(--ink);
+    margin-top:14px;
+    letter-spacing:-0.01em;
+  }
+  .section-head p{ color:var(--gray); margin-top:14px; font-size:1.02rem; max-width:56ch; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:110px 0 90px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; gap:48px; } }
+
+  .edit-block{ margin-top:26px; }
+  .edit-line{
+    font-family:var(--serif);
+    font-size:clamp(1.3rem, 2.6vw, 1.7rem);
+    color:var(--gray);
+    font-weight:500;
+    line-height:1.4;
+  }
+  .edit-line .strike{
+    text-decoration: line-through;
+    text-decoration-color: #B5453B;
+    text-decoration-thickness: 2px;
+    animation: strikeOut 2.6s ease-in-out infinite;
+  }
+  h1.hero-headline{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    line-height:1.1;
+    color:var(--ink);
+    letter-spacing:-0.02em;
+    margin-top:10px;
+  }
+  h1.hero-headline .accent{ color:var(--brass); font-style:italic; font-weight:500; }
+
+  @keyframes strikeOut{
+    0%, 40% { opacity:1; }
+    55%, 100% { opacity:0.45; }
+  }
+
+  .hero-copy p.lede{
+    margin-top:22px;
+    font-size:1.08rem;
+    color:var(--gray);
+    max-width:52ch;
+  }
+  .hero-cta{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+  .hero-trust{
+    margin-top:44px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--gray);
+    letter-spacing:0.02em;
+  }
+
+  .hero-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:32px;
+    box-shadow:0 24px 48px -32px rgba(20,33,61,0.25);
+  }
+  .hero-card .tag{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    color:var(--brass);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  .hero-card .stat{
+    font-family:var(--serif);
+    font-size:2.3rem;
+    color:var(--ink);
+    margin-top:8px;
+    font-weight:600;
+  }
+  .hero-card .stat-label{ color:var(--gray); font-size:0.9rem; margin-top:4px; }
+  .hero-card hr{ border:none; border-top:1px solid var(--line); margin:22px 0; }
+  .hero-card .flag-row{ display:flex; gap:10px; align-items:center; font-size:0.92rem; color:var(--ink); font-weight:500; }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:900px){ .services-grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:600px){ .services-grid{ grid-template-columns:1fr; } }
+
+  .service-card{
+    background:var(--paper);
+    padding:32px 28px;
+    transition:background .2s ease;
+  }
+  .service-card:hover{ background:var(--card); }
+  .service-card .tag{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    color:var(--brass);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  .service-card h3{
+    font-family:var(--serif);
+    font-size:1.25rem;
+    font-weight:600;
+    color:var(--ink);
+    margin-top:12px;
+  }
+  .service-card p{ color:var(--gray); font-size:0.94rem; margin-top:10px; }
+
+  /* ---------- SUBJECT GRID ---------- */
+  .subject-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  @media (max-width:900px){ .subject-grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:560px){ .subject-grid{ grid-template-columns:1fr; } }
+  .subject-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:22px 20px;
+  }
+  .subject-card h3{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .subject-card p{
+    color:var(--gray);
+    font-size:0.85rem;
+    margin-top:8px;
+    line-height:1.5;
+  }
+
+  /* ---------- STATS BAR ---------- */
+  .stats-bar{
+    background:var(--ink);
+    padding:36px 0;
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:24px;
+    text-align:center;
+  }
+  @media (max-width:700px){ .stats-grid{ grid-template-columns:repeat(2, 1fr); gap:28px; } }
+  .stat-item .num{
+    font-family:var(--serif);
+    font-size:1.9rem;
+    font-weight:600;
+    color:var(--brass-bright);
+  }
+  .stat-item .label{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:rgba(246,244,238,0.7);
+    margin-top:6px;
+  }
+
+  /* ---------- PRICING ---------- */
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    align-items:stretch;
+  }
+  @media (max-width:900px){ .pricing-grid{ grid-template-columns:1fr; } }
+
+  .pricing-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+  }
+  .pricing-card.featured{
+    border-color:var(--brass);
+    box-shadow:0 24px 48px -30px rgba(156,122,60,0.35);
+    position:relative;
+  }
+  .pricing-card .tag{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--brass);
+  }
+  .pricing-card.featured .tag{
+    background:var(--brass);
+    color:var(--paper);
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:20px;
+  }
+  .pricing-card h3{
+    font-family:var(--serif);
+    font-size:1.25rem;
+    color:var(--ink);
+    font-weight:600;
+    margin-top:12px;
+  }
+  .pricing-card .price{
+    font-family:var(--serif);
+    font-size:1.9rem;
+    color:var(--ink);
+    font-weight:600;
+    margin-top:14px;
+  }
+  .pricing-card .price span{
+    font-family:var(--sans);
+    font-size:0.9rem;
+    font-weight:500;
+    color:var(--gray);
+  }
+  .pricing-card .price-note{
+    font-size:0.82rem;
+    color:var(--gray);
+    margin-top:4px;
+  }
+  .pricing-features{
+    list-style:none;
+    margin:22px 0 26px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+  }
+  .pricing-features li{
+    font-size:0.9rem;
+    color:var(--charcoal);
+    padding-left:22px;
+    position:relative;
+  }
+  .pricing-features li::before{
+    content:'✓';
+    position:absolute;
+    left:0;
+    color:var(--brass);
+    font-weight:700;
+  }
+  .pricing-card .btn{ align-self:flex-start; }
+
+  .guarantee-strip{
+    margin-top:56px;
+    padding-top:44px;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:32px;
+  }
+  @media (max-width:800px){ .guarantee-strip{ grid-template-columns:1fr; } }
+  .guarantee-item{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .guarantee-item .g-icon{
+    font-size:1.4rem;
+    flex-shrink:0;
+  }
+  .guarantee-item h4{
+    font-family:var(--serif);
+    font-size:1.02rem;
+    color:var(--ink);
+    font-weight:600;
+  }
+  .guarantee-item p{
+    font-size:0.86rem;
+    color:var(--gray);
+    margin-top:6px;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process-list{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:28px;
+  }
+  @media (max-width:900px){ .process-list{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:560px){ .process-list{ grid-template-columns:1fr; } }
+
+  .process-step .num{
+    font-family:var(--mono);
+    font-size:0.85rem;
+    color:var(--brass);
+  }
+  .process-step h3{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    color:var(--ink);
+    margin-top:10px;
+    font-weight:600;
+  }
+  .process-step p{ color:var(--gray); font-size:0.92rem; margin-top:8px; }
+  .process-step{ border-top:2px solid var(--ink); padding-top:16px; }
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:28px;
+  }
+  @media (max-width:760px){ .portfolio-grid{ grid-template-columns:1fr; } }
+
+  .portfolio-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    overflow:hidden;
+    border-radius:3px;
+    text-decoration:none;
+    display:block;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .portfolio-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 20px 40px -28px rgba(20,33,61,0.3);
+  }
+  .portfolio-thumb{
+    height:180px;
+    background:
+      linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 100%);
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .portfolio-thumb span{
+    font-family:var(--serif);
+    color:rgba(246,244,238,0.85);
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+  }
+  .portfolio-body{ padding:24px; }
+  .portfolio-body .tag{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    color:var(--brass);
+    text-transform:uppercase;
+  }
+  .portfolio-body h3{
+    font-family:var(--serif);
+    font-size:1.2rem;
+    color:var(--ink);
+    margin-top:8px;
+    font-weight:600;
+  }
+  .portfolio-body p{ color:var(--gray); font-size:0.92rem; margin-top:8px; }
+  .portfolio-body .result{
+    margin-top:14px;
+    font-size:0.85rem;
+    color:var(--ink);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  @media (max-width:900px){ .testi-grid{ grid-template-columns:1fr; } }
+  .testi-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:28px;
+    border-radius:3px;
+  }
+  .testi-card .quote-mark{
+    font-family:var(--serif);
+    font-size:2.4rem;
+    color:var(--brass);
+    line-height:0.6;
+    display:block;
+    margin-bottom:10px;
+  }
+  .testi-card p.quote{ color:var(--charcoal); font-size:0.98rem; }
+  .testi-card .who{
+    margin-top:18px;
+    font-size:0.85rem;
+    color:var(--gray);
+    font-family:var(--mono);
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    max-width:760px;
+  }
+  .faq-item{
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .faq-list .faq-item:last-child{ border-bottom:1px solid var(--line); }
+  .faq-item h3{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .faq-item p{
+    color:var(--gray);
+    font-size:0.96rem;
+    margin-top:10px;
+    max-width:62ch;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.7fr 1.3fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:800px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-photo{
+    aspect-ratio:4/5;
+    background:linear-gradient(160deg, var(--paper-dim), var(--line));
+    border:1px solid var(--line);
+    border-radius:3px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gray);
+    font-family:var(--mono);
+    font-size:0.75rem;
+    text-align:center;
+    padding:20px;
+  }
+  .about-copy p{ color:var(--charcoal); margin-bottom:16px; font-size:1.02rem; max-width:60ch; }
+  .about-copy p.lede{ font-family:var(--serif); font-size:1.3rem; color:var(--ink); font-weight:500; }
+  .about-facts{
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+    max-width:440px;
+  }
+  .about-facts div{
+    border-top:1px solid var(--line);
+    padding-top:10px;
+  }
+  .about-facts .k{ font-family:var(--mono); font-size:0.72rem; color:var(--brass); text-transform:uppercase; }
+  .about-facts .v{ font-size:0.92rem; color:var(--ink); margin-top:4px; font-weight:500; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-section{ background:var(--ink); color:var(--paper); }
+  .contact-section .eyebrow{ color:var(--brass-bright); }
+  .contact-section .eyebrow::before{ background:var(--brass-bright); }
+  .contact-section .section-head h2{ color:var(--paper); }
+  .contact-section .section-head p{ color:rgba(246,244,238,0.7); }
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+  }
+  @media (max-width:800px){ .contact-grid{ grid-template-columns:1fr; } }
+
+  .contact-info p{ color:rgba(246,244,238,0.78); margin-bottom:20px; max-width:44ch; }
+  .contact-info a.email{
+    font-family:var(--serif);
+    font-size:1.4rem;
+    color:var(--paper);
+    text-decoration:none;
+    border-bottom:1px solid var(--brass-bright);
+    padding-bottom:2px;
+  }
+  .avail-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:28px;
+    padding:10px 16px;
+    border:1px solid rgba(246,244,238,0.25);
+    border-radius:2px;
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:rgba(246,244,238,0.85);
+  }
+
+  form.contact-form{ display:flex; flex-direction:column; gap:16px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:520px){ .form-row{ grid-template-columns:1fr; } }
+  .field label{
+    display:block;
+    font-family:var(--mono);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:rgba(246,244,238,0.65);
+    margin-bottom:6px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%;
+    background:rgba(246,244,238,0.06);
+    border:1px solid rgba(246,244,238,0.25);
+    color:var(--paper);
+    padding:12px 14px;
+    font-family:var(--sans);
+    font-size:0.95rem;
+    border-radius:2px;
+  }
+  .field input::placeholder, .field textarea::placeholder{ color:rgba(246,244,238,0.35); }
+  .field textarea{ resize:vertical; min-height:110px; }
+  .field select option{ color:var(--charcoal); }
+
+  .contact-form .btn-primary{
+    background:var(--brass-bright);
+    color:var(--ink);
+    margin-top:6px;
+    align-self:flex-start;
+  }
+  .contact-form .btn-primary:hover{ background:#c8a25e; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    border-top:1px solid rgba(246,244,238,0.12);
+    padding:32px 0;
+  }
+  .footer-row{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:14px;
+    color:rgba(246,244,238,0.55);
+    font-size:0.82rem;
+  }
+  .footer-row a{ color:rgba(246,244,238,0.75); text-decoration:none; }
+  .footer-links{ display:flex; gap:22px; list-style:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="#top" class="logo">Trevor Travis<span>.</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="login.html">Sign in</a></li>
+      <li><a href="#contact" class="nav-cta">Get a quote</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Academic Editing &amp; Writing Coach — US &amp; Canada</p>
+
+        <div class="edit-block">
+          <p class="edit-line"><span class="strike">The data shows a correlation between the two variables that was studied.</span></p>
+        </div>
+        <h1 class="hero-headline">Writing that's <span class="accent">clear</span>, work that's still <span class="accent">yours.</span></h1>
+
+        <p class="lede">I edit and coach graduate students, researchers, and professionals through essays, theses, and dissertations — sharper arguments, cleaner prose, and citations that hold up. I don't write papers for clients; I help you write yours better.</p>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Get a free quote</a>
+          <a href="#pricing" class="btn btn-ghost">See pricing</a>
+        </div>
+        <p style="margin-top:14px; font-size:0.85rem; color:var(--gray);">No obligation · Reply within 1 business day · Confidential by default</p>
+
+        <div class="hero-trust">
+          GRADUATE STUDENTS &nbsp;·&nbsp; RESEARCHERS &nbsp;·&nbsp; ESL WRITERS &nbsp;·&nbsp; APPLICANTS &nbsp;·&nbsp; ACADEMIC PROFESSIONALS
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <p class="tag">Currently booking</p>
+        <p class="stat">2 slots</p>
+        <p class="stat-label">for August 2026 projects</p>
+        <hr>
+        <div class="flag-row">🇺🇸 &nbsp;🇨🇦&nbsp; Working EST, CST, MST &amp; PST hours</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS BAR ================= -->
+  <section class="stats-bar">
+    <div class="wrap stats-grid">
+      <div class="stat-item">
+        <p class="num">200+</p>
+        <p class="label">Projects completed</p>
+      </div>
+      <div class="stat-item">
+        <p class="num">US &amp; CA</p>
+        <p class="label">Clients served</p>
+      </div>
+      <div class="stat-item">
+        <p class="num">&lt;24hr</p>
+        <p class="label">Average reply time</p>
+      </div>
+      <div class="stat-item">
+        <p class="num">Secure</p>
+        <p class="label">Payment via Stripe</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How I can help</p>
+        <h2>Editing and coaching, not ghostwriting.</h2>
+        <p>Every service below works on writing that's already yours — clarifying your argument, tightening your prose, and getting the formatting right.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="services-grid">
+        <div class="service-card">
+          <p class="tag">[ Editing ]</p>
+          <h3>Essay &amp; paper editing</h3>
+          <p>Line editing and structural feedback on essays, term papers, and journal submissions.</p>
+        </div>
+        <div class="service-card">
+          <p class="tag">[ Coaching ]</p>
+          <h3>Thesis &amp; dissertation coaching</h3>
+          <p>Chapter-by-chapter feedback, defense prep, and accountability from proposal to final draft.</p>
+        </div>
+        <div class="service-card">
+          <p class="tag">[ Research ]</p>
+          <h3>Research &amp; source support</h3>
+          <p>Help finding, evaluating, and organizing sources — and building an argument around them.</p>
+        </div>
+        <div class="service-card">
+          <p class="tag">[ Applications ]</p>
+          <h3>Personal statements &amp; applications</h3>
+          <p>Editing for grad school, scholarship, and fellowship application essays.</p>
+        </div>
+        <div class="service-card">
+          <p class="tag">[ Formatting ]</p>
+          <h3>Citation &amp; formatting</h3>
+          <p>APA, MLA, and Chicago formatting, reference checks, and style consistency passes.</p>
+        </div>
+        <div class="service-card">
+          <p class="tag">[ ESL ]</p>
+          <h3>Academic English support</h3>
+          <p>Sentence-level coaching for multilingual writers working in academic English.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SUBJECT GRID ================= -->
+  <section id="subjects" style="background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Subject coverage</p>
+        <h2>Editing and coaching across these fields.</h2>
+        <p>Not sure your topic fits? Send it over — if it's not a good match, I'll tell you directly instead of taking the project.</p>
+      </div>
+      <div class="subject-grid">
+        <div class="subject-card">
+          <h3>Business &amp; Management</h3>
+          <p>Marketing · Operations · HRM · Strategic management · Project management</p>
+        </div>
+        <div class="subject-card">
+          <h3>Economics &amp; Finance</h3>
+          <p>Microeconomics · Macroeconomics · Corporate finance · Econometrics · Investment analysis</p>
+        </div>
+        <div class="subject-card">
+          <h3>Sciences &amp; Engineering</h3>
+          <p>Biological sciences · Environmental science · Civil &amp; structural engineering · Chemistry</p>
+        </div>
+        <div class="subject-card">
+          <h3>Social Sciences &amp; Humanities</h3>
+          <p>Sociology · Psychology · Anthropology · Gender studies · Education</p>
+        </div>
+        <div class="subject-card">
+          <h3>Health &amp; Medicine</h3>
+          <p>Public health · Nursing · Health policy · Clinical research writing</p>
+        </div>
+        <div class="subject-card">
+          <h3>Law</h3>
+          <p>Constitutional law · Business law · Human rights law · Legal writing &amp; briefs</p>
+        </div>
+        <div class="subject-card">
+          <h3>Computer Science &amp; IT</h3>
+          <p>Technical reports · Research papers · Documentation clarity for CS &amp; data topics</p>
+        </div>
+        <div class="subject-card">
+          <h3>Statistics &amp; Data</h3>
+          <p>Methodology sections · Data interpretation · Regression &amp; SPSS write-ups</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Pricing</p>
+        <h2>Straightforward packages, no hidden fees.</h2>
+        <p>Every project gets a fixed quote before work starts — you'll never be surprised by the final invoice. Prices below are starting points; final quotes depend on length and turnaround. Payment is processed securely through Stripe.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <p class="tag">Single document</p>
+          <h3>Essay &amp; Paper Edit</h3>
+          <p class="price">From $0.03<span>/word</span></p>
+          <p class="price-note">Typical essay (2,000 words): ~$60</p>
+          <ul class="pricing-features">
+            <li>Line editing &amp; structural feedback</li>
+            <li>One revision round included</li>
+            <li>APA / MLA / Chicago formatting check</li>
+            <li>5–10 business day turnaround</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost">Get a quote</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <p class="tag">Most popular</p>
+          <h3>Application Essay Package</h3>
+          <p class="price">From $250<span>/package</span></p>
+          <p class="price-note">Up to 3 essays, unlimited light revisions</p>
+          <ul class="pricing-features">
+            <li>Everything in Essay &amp; Paper Edit</li>
+            <li>Strategy call on positioning &amp; structure</li>
+            <li>Unlimited revisions until submission-ready</li>
+            <li>Priority turnaround</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Get a quote</a>
+        </div>
+
+        <div class="pricing-card">
+          <p class="tag">Ongoing</p>
+          <h3>Thesis &amp; Dissertation Coaching</h3>
+          <p class="price">From $180<span>/chapter</span></p>
+          <p class="price-note">Or a flat project rate for the full thesis</p>
+          <ul class="pricing-features">
+            <li>Chapter-by-chapter feedback</li>
+            <li>Defense &amp; committee prep session</li>
+            <li>Direct email access between rounds</li>
+            <li>Flexible, ongoing schedule</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost">Get a quote</a>
+        </div>
+      </div>
+
+      <div class="guarantee-strip">
+        <div class="guarantee-item">
+          <span class="g-icon">&#128274;</span>
+          <div>
+            <h4>Confidential by default</h4>
+            <p>Your drafts and personal statements are never shared, published, or reused.</p>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <span class="g-icon">&#8635;</span>
+          <div>
+            <h4>Revision included</h4>
+            <p>If a document doesn't meet the brief, it gets revised at no extra cost.</p>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <span class="g-icon">&#128337;</span>
+          <div>
+            <h4>On-time or you're told early</h4>
+            <p>If a deadline is at risk, you'll hear about it days in advance, not after.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section id="process" style="background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How a project runs</p>
+        <h2>Four steps, start to submission-ready.</h2>
+      </div>
+      <div class="process-list">
+        <div class="process-step">
+          <p class="num">01</p>
+          <h3>Intake</h3>
+          <p>You send your draft plus any style guide, rubric, or program requirements.</p>
+        </div>
+        <div class="process-step">
+          <p class="num">02</p>
+          <h3>Review</h3>
+          <p>I read for argument, structure, and clarity first — line edits come after the bones are solid.</p>
+        </div>
+        <div class="process-step">
+          <p class="num">03</p>
+          <h3>Feedback</h3>
+          <p>Tracked changes plus margin comments explaining the reasoning behind each suggestion.</p>
+        </div>
+        <div class="process-step">
+          <p class="num">04</p>
+          <h3>Follow-up</h3>
+          <p>A short call or written Q&amp;A to walk through anything that's still unclear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What a project looks like</p>
+        <h2>A few examples of project scope.</h2>
+        <p>These are illustrative examples of the kinds of projects I take on — not specific past clients. Client work stays confidential unless I have written permission to share it.</p>
+      </div>
+      <div class="portfolio-grid">
+        <a href="#contact" class="portfolio-card">
+          <div class="portfolio-thumb"><span>Example scope</span></div>
+          <div class="portfolio-body">
+            <p class="tag">Dissertation coaching</p>
+            <h3>Full dissertation coaching, proposal to defense</h3>
+            <p>Chapter-by-chapter feedback over multiple semesters, plus defense-prep coaching.</p>
+          </div>
+        </a>
+        <a href="#contact" class="portfolio-card">
+          <div class="portfolio-thumb"><span>Example scope</span></div>
+          <div class="portfolio-body">
+            <p class="tag">Application essays</p>
+            <h3>Personal statement editing for graduate admissions</h3>
+            <p>Multiple rounds of structural and line editing across a full application set.</p>
+          </div>
+        </a>
+        <a href="#contact" class="portfolio-card">
+          <div class="portfolio-thumb"><span>Example scope</span></div>
+          <div class="portfolio-body">
+            <p class="tag">Journal article</p>
+            <h3>Line edit and citation check before submission</h3>
+            <p>Tightening the argument and bringing references into consistent APA, MLA, or Chicago format.</p>
+          </div>
+        </a>
+        <a href="#contact" class="portfolio-card">
+          <div class="portfolio-thumb"><span>Example scope</span></div>
+          <div class="portfolio-body">
+            <p class="tag">ESL coaching</p>
+            <h3>Semester-long academic English coaching</h3>
+            <p>Weekly sessions on sentence structure and academic tone for a multilingual writer.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Frequently asked</p>
+        <h2>Questions clients ask before booking.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Do you write papers for clients?</h3>
+          <p>No. I edit, coach, and give feedback on writing that's already yours. That means line editing, structural feedback, source guidance, and formatting help — not ghostwriting an assignment for you to submit as your own work. This keeps the work honest and keeps you in compliance with your school's academic integrity policy.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What citation styles do you work with?</h3>
+          <p>APA (6th and 7th edition), MLA, and Chicago (notes-bibliography and author-date). Tell me your program's required style when you send your draft.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How long does editing take?</h3>
+          <p>Most single documents — essays, personal statements, journal articles — are returned within 5 to 10 business days. Dissertation coaching runs on a longer, ongoing schedule set at intake. Rush turnaround may be available; ask when you send your project.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you work with clients outside the US and Canada?</h3>
+          <p>My primary hours cover US and Canadian time zones (EST through PST), but I take on international clients when schedules line up. Ask if you're unsure.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is my work kept confidential?</h3>
+          <p>Yes. Drafts, personal statements, and research are not shared, published, or reused without your written permission.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-photo">Replace with a real headshot (square or 4:5 crop works best)</div>
+      <div class="about-copy">
+        <p class="eyebrow">About</p>
+        <p class="lede" style="margin-top:14px;">I'm Trevor Travis, an academic editor and writing coach based in Texas, working with students and researchers across the US and Canada.</p>
+        <p>I've worked on more than 200 academic editing and coaching projects — essays, theses, dissertations, and application materials — helping clients sharpen their arguments and clean up their prose without ever losing their own voice.</p>
+        <p>Every project is worked on directly by me, start to finish. No outsourcing, no rotating pool of anonymous editors.</p>
+        <div class="about-facts">
+          <div><p class="k">Based in</p><p class="v">Texas, USA</p></div>
+          <div><p class="k">Serving</p><p class="v">United States &amp; Canada</p></div>
+          <div><p class="k">Track record</p><p class="v">200+ projects completed</p></div>
+          <div><p class="k">Turnaround</p><p class="v">Typically 5–10 business days</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESOURCES PREVIEW ================= -->
+  <section style="background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; max-width:none;">
+        <div>
+          <p class="eyebrow">From the resources page</p>
+          <h2 style="margin-top:14px;">Free guides on academic writing.</h2>
+        </div>
+        <a href="resources.html" class="btn btn-ghost">See all resources</a>
+      </div>
+      <div class="portfolio-grid" style="margin-top:40px;">
+        <a href="blog-apa-citation-mistakes.html" class="portfolio-card">
+          <div class="portfolio-thumb"><span>Guide</span></div>
+          <div class="portfolio-body">
+            <p class="tag">Citations</p>
+            <h3>APA 7th Edition: The Mistakes That Cost the Most Points</h3>
+            <p>The five formatting errors that show up most often in graduate papers.</p>
+          </div>
+        </a>
+        <a href="blog-literature-review-structure.html" class="portfolio-card">
+          <div class="portfolio-thumb"><span>Guide</span></div>
+          <div class="portfolio-body">
+            <p class="tag">Dissertations</p>
+            <h3>How to Structure a Literature Review Chapter</h3>
+            <p>A practical framework for organizing sources by theme.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="contact-section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Tell me about the project.</h2>
+        <p>Fill out the form, or email directly. I reply within one business day.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>The more detail you give me up front, the faster I can put together an accurate quote and timeline.</p>
+          <a class="email" href="mailto:hello@trevortravis.com">hello@trevortravis.com</a>
+          <div><span class="avail-badge">🇺🇸 🇨🇦 &nbsp;Serving clients across the US &amp; Canada</span></div>
+        </div>
+
+        <!--
+          This form is styled but not wired to a backend.
+          To make it work, either:
+            1) Set action="https://formspree.io/f/yourFormId" and method="POST", or
+            2) If hosting on Netlify, add data-netlify="true" and a hidden
+               "form-name" input.
+        -->
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Full name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="company">School / Institution</label>
+              <input type="text" id="company" name="company" placeholder="Optional">
+            </div>
+            <div class="field">
+              <label for="project">Project type</label>
+              <select id="project" name="project">
+                <option>Essay / paper editing</option>
+                <option>Thesis / dissertation coaching</option>
+                <option>Research / source support</option>
+                <option>Personal statement / application essay</option>
+                <option>Citation / formatting check</option>
+                <option>Academic English coaching</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" placeholder="What are you working on, and what's the timeline?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send project details</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Trevor Travis. All rights reserved.</span>
+    <ul class="footer-links">
+      <li><a href="team.html">Team</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="privacy-policy.html">Privacy</a></li>
+      <li><a href="terms-of-service.html">Terms</a></li>
+      <li><a href="mailto:hello@trevortravis.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+
+<!--
+  SEO / AEO structured data.
+  This JSON-LD tells search engines AND AI answer engines (Google's
+  AI Overviews, ChatGPT search, Perplexity, etc.) exactly what this
+  business is, what it offers, and answers to common questions —
+  in a machine-readable format they can quote directly.
+  Update the name, url, email, and areaServed with your real details.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Trevor Travis Academic Editing",
+  "url": "https://www.trevortravis.com/",
+  "email": "hello@trevortravis.com",
+  "description": "Academic editing, dissertation coaching, and research support for graduate students and professionals across the United States and Canada.",
+  "areaServed": ["United States", "Canada"],
+  "priceRange": "$$",
+  "serviceType": [
+    "Academic editing",
+    "Dissertation coaching",
+    "Thesis coaching",
+    "Research support",
+    "Personal statement editing",
+    "Citation formatting",
+    "ESL academic writing coaching"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you write papers for clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This service edits, coaches, and gives feedback on writing that is already the client's own — line editing, structural feedback, source guidance, and formatting help, not ghostwriting an assignment for submission."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What citation styles are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "APA (6th and 7th edition), MLA, and Chicago (notes-bibliography and author-date)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does academic editing take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most single documents are returned within 5 to 10 business days. Dissertation coaching runs on an ongoing schedule set at intake."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
