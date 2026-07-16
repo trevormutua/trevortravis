@@ -1,0 +1,13 @@
+# robots.txt for scholarscript.com
+# Replace the domain in the Sitemap line below with your real domain
+# once you've picked one.
+
+User-agent: *
+Allow: /
+
+# Members-only pages — no reason for search engines to index these
+Disallow: /login
+Disallow: /signup
+Disallow: /dashboard
+
+Sitemap: https://www.scholarscript.com/sitemap.xml

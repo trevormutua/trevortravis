@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard — Trevor Travis Academic Editing</title>
+<title>Dashboard — ScholarScript Academic Editing</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -687,11 +687,12 @@
   .dash-card{ background:var(--card); border:1px solid var(--line); border-radius:3px; padding:28px; }
   .dash-card h2{ font-family:var(--serif); font-size:1.15rem; color:var(--ink); font-weight:600; margin-bottom:6px; }
   .dash-card .muted{ color:var(--gray); font-size:0.9rem; }
-  .project-row{ display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-top:1px solid var(--line); }
+  .project-row{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding:14px 0; border-top:1px solid var(--line); }
   .project-row:first-of-type{ border-top:none; }
   .project-row .name{ font-weight:500; color:var(--ink); font-size:0.95rem; }
   .project-row .meta{ font-size:0.8rem; color:var(--gray); margin-top:2px; }
   .status-pill{ font-family:var(--mono); font-size:0.7rem; text-transform:uppercase; padding:4px 10px; border-radius:20px; background:var(--paper-dim); color:var(--gray); border:1px solid var(--line); }
+  .status-select{ font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; padding:6px 10px; border-radius:4px; background:var(--paper-dim); color:var(--ink); border:1px solid var(--line); cursor:pointer; }
   .file-link{ color:var(--brass); text-decoration:none; font-weight:500; }
   .file-link:hover{ text-decoration:underline; }
   .new-project-form input[type="file"]{ padding:8px 10px; font-size:0.85rem; cursor:pointer; }
@@ -707,11 +708,11 @@
 
 <header class="site">
   <nav class="nav">
-    <a href="index.html#top" class="logo">Trevor Travis<span>.</span></a>
+    <a href="/" class="logo">ScholarScript<span>.</span></a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">&#9776;</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="index.html#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#about">About</a></li>
       <li><a href="#" id="signOutLink">Sign out</a></li>
     </ul>
   </nav>
@@ -770,13 +771,13 @@
 
 <footer>
   <div class="wrap footer-row">
-    <span>&copy; 2026 Trevor Travis. All rights reserved.</span>
+    <span>&copy; 2026 ScholarScript. All rights reserved.</span>
     <ul class="footer-links">
-      <li><a href="team.html">Team</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="privacy-policy.html">Privacy</a></li>
-      <li><a href="terms-of-service.html">Terms</a></li>
-      <li><a href="mailto:hello@trevortravis.com">Email</a></li>
+      <li><a href="/team">Team</a></li>
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/privacy-policy">Privacy</a></li>
+      <li><a href="/terms-of-service">Terms</a></li>
+      <li><a href="mailto:hello@scholarscript.com">Email</a></li>
     </ul>
   </div>
 </footer>
@@ -793,30 +794,54 @@
 
   let currentUser = null;
 
+  let userRole = 'client';
+
   async function loadProjects() {
     const listEl = document.getElementById('projectList');
-    const { data, error } = await supabaseClient
-      .from('projects')
-      .select('*')
-      .order('created_at', { ascending: false });
+
+    let query = supabaseClient.from('projects').select(
+      userRole === 'editor' ? '*, profiles(full_name, email)' : '*'
+    ).order('created_at', { ascending: false });
+
+    const { data, error } = await query;
 
     if (error) {
       listEl.innerHTML = '<div class="empty-state">Could not load projects. Make sure supabase-schema.sql has been run.</div>';
       return;
     }
     if (!data || data.length === 0) {
-      listEl.innerHTML = '<div class="empty-state">No projects yet — submit your first one using the form.</div>';
+      listEl.innerHTML = userRole === 'editor'
+        ? '<div class="empty-state">No client projects submitted yet.</div>'
+        : '<div class="empty-state">No projects yet — submit your first one using the form.</div>';
       return;
     }
-    listEl.innerHTML = data.map(p => `
-      <div class="project-row">
-        <div>
-          <div class="name">${p.project_type || 'Project'}</div>
-          <div class="meta">${new Date(p.created_at).toLocaleDateString()}${p.file_path ? ' · <a href="#" class="file-link" data-path="' + p.file_path + '">View attachment</a>' : ''}</div>
+
+    const statusOptions = ['submitted', 'in_review', 'in_progress', 'delivered'];
+
+    listEl.innerHTML = data.map(p => {
+      const clientLine = (userRole === 'editor' && p.profiles)
+        ? `<div class="meta">${p.profiles.full_name || p.profiles.email || 'Unknown client'}</div>` : '';
+      const fileLink = p.file_path
+        ? ' · <a href="#" class="file-link" data-path="' + p.file_path + '">View attachment</a>' : '';
+
+      const statusControl = userRole === 'editor'
+        ? `<select class="status-select" data-id="${p.id}">
+             ${statusOptions.map(s => `<option value="${s}" ${s === (p.status || 'submitted') ? 'selected' : ''}>${s.replace('_',' ')}</option>`).join('')}
+           </select>`
+        : `<span class="status-pill">${(p.status || 'submitted').replace('_', ' ')}</span>`;
+
+      return `
+        <div class="project-row">
+          <div>
+            <div class="name">${p.project_type || 'Project'}</div>
+            ${clientLine}
+            <div class="meta">${new Date(p.created_at).toLocaleDateString()}${fileLink}</div>
+            ${p.notes ? `<div class="meta" style="margin-top:4px;">${p.notes}</div>` : ''}
+          </div>
+          ${statusControl}
         </div>
-        <span class="status-pill">${(p.status || 'submitted').replace('_', ' ')}</span>
-      </div>
-    `).join('');
+      `;
+    }).join('');
 
     // Attachments are private, so each link fetches a temporary
     // signed URL only when clicked, rather than being a plain <a href>.
@@ -835,6 +860,19 @@
         }
       });
     });
+
+    // Editors can change a project's status directly from the list.
+    listEl.querySelectorAll('.status-select').forEach(select => {
+      select.addEventListener('change', async () => {
+        const { error } = await supabaseClient
+          .from('projects')
+          .update({ status: select.value })
+          .eq('id', select.dataset.id);
+        if (error) {
+          alert('Could not update status: ' + error.message);
+        }
+      });
+    });
   }
 
   async function init() {
@@ -842,6 +880,23 @@
     if (!currentUser) return;
     const name = currentUser.user_metadata && currentUser.user_metadata.full_name;
     document.getElementById('welcomeName').textContent = name ? `, ${name.split(' ')[0]}` : '';
+
+    // Look up the real role from the database (not just signup-time
+    // metadata) — this is what makes an account promoted to "editor"
+    // directly in Supabase show the admin view without needing to
+    // sign up again.
+    const { data: profile } = await supabaseClient
+      .from('profiles')
+      .select('role')
+      .eq('id', currentUser.id)
+      .single();
+    userRole = (profile && profile.role) || 'client';
+
+    if (userRole === 'editor') {
+      document.querySelector('.dash-card h2').textContent = 'All client projects';
+      document.querySelector('.dash-card .muted').textContent = 'Every project submitted, across all clients. Change status directly from the dropdown.';
+    }
+
     loadProjects();
   }
   init();
@@ -849,7 +904,7 @@
   document.getElementById('signOutLink').addEventListener('click', async (e) => {
     e.preventDefault();
     await signOutClient();
-    window.location.href = 'login.html';
+    window.location.href = '/login';
   });
 
   document.getElementById('newProjectForm').addEventListener('submit', async (e) => {

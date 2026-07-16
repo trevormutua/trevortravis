@@ -39,16 +39,10 @@ async function signUpClient({ email, password, fullName, role }) {
   });
   if (error) throw error;
 
-  // Mirror the profile into a public "profiles" table so it's easy
-  // to query alongside projects later (see supabase-schema.sql).
-  if (data.user) {
-    await supabaseClient.from("profiles").upsert({
-      id: data.user.id,
-      full_name: fullName,
-      role: role || "client",
-      email,
-    });
-  }
+  // Note: the matching row in the "profiles" table is created
+  // automatically by a database trigger (see supabase-schema.sql),
+  // not here — this works reliably even when email confirmation
+  // delays the user's first active session.
   return data;
 }
 
@@ -74,7 +68,7 @@ async function getCurrentUser() {
 async function requireAuth() {
   const user = await getCurrentUser();
   if (!user) {
-    window.location.href = "login.html";
+    window.location.href = "/login";
   }
   return user;
 }

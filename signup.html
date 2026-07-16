@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign Up — Trevor Travis Academic Editing</title>
+<title>Sign Up — ScholarScript Academic Editing</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -689,14 +689,14 @@
 
 <header class="site">
   <nav class="nav">
-    <a href="index.html#top" class="logo">Trevor Travis<span>.</span></a>
+    <a href="/" class="logo">ScholarScript<span>.</span></a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">&#9776;</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="index.html#subjects">Subjects</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="login.html">Sign in</a></li>
-      <li><a href="index.html#contact" class="nav-cta">Get a quote</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#subjects">Subjects</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/login">Sign in</a></li>
+      <li><a href="/#contact" class="nav-cta">Get a quote</a></li>
     </ul>
   </nav>
 </header>
@@ -729,11 +729,17 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Create a password" required autocomplete="new-password" minlength="8">
       </div>
+      <div class="field" style="display:flex; align-items:flex-start; gap:10px;">
+        <input type="checkbox" id="agreeTerms" name="agreeTerms" required style="margin-top:3px; width:auto;">
+        <label for="agreeTerms" style="text-transform:none; font-family:var(--sans); font-size:0.85rem; color:var(--charcoal); cursor:pointer;">
+          I agree to the <a href="/terms-of-service" target="_blank" style="color:var(--brass);">Terms of Service</a> and <a href="/privacy-policy" target="_blank" style="color:var(--brass);">Privacy Policy</a>.
+        </label>
+      </div>
       <button type="submit" class="btn btn-primary" id="submitBtn">Create account</button>
       <p id="formError" style="color:#B5453B; font-size:0.85rem; display:none;"></p>
     </form>
 
-    <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+    <p class="auth-switch">Already have an account? <a href="/login">Sign in</a></p>
 
     <div class="auth-note">
       Connected to Supabase for real account creation. If sign-up doesn't work, make sure you've added your Project URL and anon key in supabase-client.js and run supabase-schema.sql — see the comments in those files.
@@ -743,13 +749,13 @@
 
 <footer>
   <div class="wrap footer-row">
-    <span>&copy; 2026 Trevor Travis. All rights reserved.</span>
+    <span>&copy; 2026 ScholarScript. All rights reserved.</span>
     <ul class="footer-links">
-      <li><a href="team.html">Team</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="privacy-policy.html">Privacy</a></li>
-      <li><a href="terms-of-service.html">Terms</a></li>
-      <li><a href="mailto:hello@trevortravis.com">Email</a></li>
+      <li><a href="/team">Team</a></li>
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/privacy-policy">Privacy</a></li>
+      <li><a href="/terms-of-service">Terms</a></li>
+      <li><a href="mailto:hello@scholarscript.com">Email</a></li>
     </ul>
   </div>
 </footer>
@@ -781,7 +787,7 @@
     try {
       const data = await signUpClient({ email, password, fullName, role });
       if (data.session) {
-        window.location.href = 'dashboard.html';
+        window.location.href = '/dashboard';
       } else {
         formError.style.color = 'var(--gray)';
         formError.textContent = 'Account created — check your email to confirm before signing in.';
@@ -799,7 +805,7 @@
   });
 
   getCurrentUser().then(user => {
-    if (user) window.location.href = 'dashboard.html';
+    if (user) window.location.href = '/dashboard';
   });
 </script>
 
