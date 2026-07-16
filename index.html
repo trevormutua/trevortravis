@@ -340,6 +340,9 @@
     margin-top:12px;
   }
   .service-card p{ color:var(--gray); font-size:0.94rem; margin-top:10px; }
+  .service-includes{ list-style:none; margin-top:14px; display:flex; flex-direction:column; gap:6px; }
+  .service-includes li{ font-size:0.85rem; color:var(--charcoal); padding-left:20px; position:relative; }
+  .service-includes li::before{ content:'✓'; position:absolute; left:0; color:var(--brass); font-weight:700; }
 
   /* ---------- SUBJECT GRID ---------- */
   .subject-grid{
@@ -858,32 +861,62 @@
         <div class="service-card">
           <p class="tag">[ Editing ]</p>
           <h3>Essay &amp; paper editing</h3>
-          <p>Line editing and structural feedback on essays, term papers, and journal submissions.</p>
+          <p>Line editing and structural feedback on essays, term papers, and journal submissions — the kind of edit that catches both the sentence-level problems and the bigger structural ones.</p>
+          <ul class="service-includes">
+            <li>Argument &amp; structure review</li>
+            <li>Line-by-line clarity edit</li>
+            <li>Grammar &amp; consistency pass</li>
+          </ul>
         </div>
         <div class="service-card">
           <p class="tag">[ Coaching ]</p>
           <h3>Thesis &amp; dissertation coaching</h3>
-          <p>Chapter-by-chapter feedback, defense prep, and accountability from proposal to final draft.</p>
+          <p>Ongoing, chapter-by-chapter feedback from proposal through defense — built for a project that takes months, not days, and needs the same reader throughout.</p>
+          <ul class="service-includes">
+            <li>Chapter-by-chapter feedback</li>
+            <li>Defense &amp; committee prep</li>
+            <li>Flexible, ongoing schedule</li>
+          </ul>
         </div>
         <div class="service-card">
           <p class="tag">[ Research ]</p>
           <h3>Research &amp; source support</h3>
-          <p>Help finding, evaluating, and organizing sources — and building an argument around them.</p>
+          <p>Help finding, evaluating, and organizing sources, then building an actual argument around them instead of a list of summaries.</p>
+          <ul class="service-includes">
+            <li>Source evaluation &amp; gaps</li>
+            <li>Synthesis, not summary</li>
+            <li>Argument structuring help</li>
+          </ul>
         </div>
         <div class="service-card">
           <p class="tag">[ Applications ]</p>
           <h3>Personal statements &amp; applications</h3>
-          <p>Editing for grad school, scholarship, and fellowship application essays.</p>
+          <p>Editing for grad school, scholarship, and fellowship application essays — focused on the specificity and program fit that actually gets an application read closely.</p>
+          <ul class="service-includes">
+            <li>Structural &amp; content edit</li>
+            <li>Program-fit feedback</li>
+            <li>Multiple revision rounds</li>
+          </ul>
         </div>
         <div class="service-card">
           <p class="tag">[ Formatting ]</p>
           <h3>Citation &amp; formatting</h3>
-          <p>APA, MLA, and Chicago formatting, reference checks, and style consistency passes.</p>
+          <p>APA, MLA, and Chicago formatting, reference checks, and style consistency passes — the detail work that's easy to get subtly wrong under deadline pressure.</p>
+          <ul class="service-includes">
+            <li>Full citation style check</li>
+            <li>Reference list formatting</li>
+            <li>In-text citation accuracy</li>
+          </ul>
         </div>
         <div class="service-card">
           <p class="tag">[ ESL ]</p>
           <h3>Academic English support</h3>
-          <p>Sentence-level coaching for multilingual writers working in academic English.</p>
+          <p>Sentence-level coaching for multilingual writers working in academic English — built around your specific patterns, not generic grammar drills.</p>
+          <ul class="service-includes">
+            <li>Sentence-level coaching</li>
+            <li>Academic tone &amp; register</li>
+            <li>Pattern-specific feedback</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1125,17 +1158,56 @@
   <!-- ================= ABOUT ================= -->
   <section id="about">
     <div class="wrap about-grid">
-      <div class="about-photo">Replace with a real headshot (square or 4:5 crop works best)</div>
+      <div class="about-photo"><img src="trevor-photo.jpg" alt="Trevor Travis, academic editor and writing coach" style="width:100%; height:100%; object-fit:cover; border-radius:2px;"></div>
       <div class="about-copy">
         <p class="eyebrow">About</p>
         <p class="lede" style="margin-top:14px;">I'm Trevor Travis, an academic editor and writing coach based in Texas, working with students and researchers across the US and Canada.</p>
         <p>I've worked on more than 200 academic editing and coaching projects — essays, theses, dissertations, and application materials — helping clients sharpen their arguments and clean up their prose without ever losing their own voice.</p>
-        <p>Every project is worked on directly by me, start to finish. No outsourcing, no rotating pool of anonymous editors.</p>
+        <p>Every project is worked on directly by me, start to finish. No outsourcing, no rotating pool of anonymous editors, and no handing your work off to someone else halfway through. If we're talking about your dissertation in March, the same person is still reading your defense draft in October.</p>
+        <p>My approach to editing is deliberately conservative: I fix what's actually broken — unclear arguments, weak transitions, inconsistent formatting, sentences doing too much work — without rewriting your voice into mine. The goal is always a version of your paper that still sounds like you, just clearer. I'd rather leave a good-enough sentence alone than "improve" it into something that reads like it was written by somebody else.</p>
+        <p>I also try to explain the reasoning behind every suggestion, not just make the change. Margin comments walk through *why* a section isn't landing, not just *that* it isn't — the idea being that you leave each round of edits a slightly better writer than you started, not just with a cleaner document.</p>
         <div class="about-facts">
           <div><p class="k">Based in</p><p class="v">Texas, USA</p></div>
           <div><p class="k">Serving</p><p class="v">United States &amp; Canada</p></div>
           <div><p class="k">Track record</p><p class="v">200+ projects completed</p></div>
           <div><p class="k">Turnaround</p><p class="v">Typically 5–10 business days</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY WORK WITH ME ================= -->
+  <section style="background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Why work with me</p>
+        <h2>What you actually get, project to project.</h2>
+        <p>Not vague promises — the specific things that make working with one dedicated editor different from a faceless editing service.</p>
+      </div>
+      <div class="subject-grid">
+        <div class="subject-card">
+          <h3>Direct access, every round</h3>
+          <p>You're emailing the person actually reading your draft, not a support inbox or account manager relaying messages to someone else.</p>
+        </div>
+        <div class="subject-card">
+          <h3>Explained edits, not just marks</h3>
+          <p>Every significant change comes with a margin note explaining the reasoning, so you understand the "why," not just the "what."</p>
+        </div>
+        <div class="subject-card">
+          <h3>Confidentiality by default</h3>
+          <p>Your drafts, personal statements, and research stay private — never shared, published, or reused without your written permission.</p>
+        </div>
+        <div class="subject-card">
+          <h3>Honest turnaround estimates</h3>
+          <p>If a deadline is genuinely at risk, you hear about it early enough to do something about it — not the day before it's due.</p>
+        </div>
+        <div class="subject-card">
+          <h3>Your voice, preserved</h3>
+          <p>Editing means fixing what's broken, not rewriting your paper into a version that no longer sounds like you.</p>
+        </div>
+        <div class="subject-card">
+          <h3>One point of contact</h3>
+          <p>No handoffs mid-project. The person who reads your first draft is the same one reading your last.</p>
         </div>
       </div>
     </div>
