@@ -406,6 +406,9 @@
     align-items:stretch;
   }
   @media (max-width:900px){ .pricing-grid{ grid-template-columns:1fr; } }
+  .pricing-grid-4{ grid-template-columns:repeat(4, 1fr); }
+  @media (max-width:1100px){ .pricing-grid-4{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:600px){ .pricing-grid-4{ grid-template-columns:1fr; } }
 
   .pricing-card{
     background:var(--card);
@@ -754,8 +757,26 @@
   footer{
     background:var(--ink);
     border-top:1px solid rgba(246,244,238,0.12);
-    padding:32px 0;
+    padding:56px 0 24px;
   }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.6fr 1fr 1fr 1fr;
+    gap:32px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(246,244,238,0.12);
+    margin-bottom:24px;
+  }
+  @media (max-width:800px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:500px){ .footer-grid{ grid-template-columns:1fr; } }
+  .footer-brand p{ color:rgba(246,244,238,0.6); font-size:0.88rem; margin-top:14px; max-width:32ch; }
+  .footer-contact{ display:flex; flex-direction:column; gap:6px; margin-top:18px; }
+  .footer-contact a, .footer-contact span{ color:rgba(246,244,238,0.55); font-size:0.85rem; text-decoration:none; }
+  .footer-contact a:hover{ color:var(--brass-bright); }
+  .footer-col h4{ font-family:var(--serif); font-size:0.95rem; color:var(--paper); font-weight:600; margin-bottom:14px; }
+  .footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-col a{ color:rgba(246,244,238,0.6); font-size:0.85rem; text-decoration:none; }
+  .footer-col a:hover{ color:var(--brass-bright); }
   .footer-row{
     display:flex; justify-content:space-between; align-items:center;
     flex-wrap:wrap; gap:14px;
@@ -764,6 +785,46 @@
   }
   .footer-row a{ color:rgba(246,244,238,0.75); text-decoration:none; }
   .footer-links{ display:flex; gap:22px; list-style:none; }
+
+  /* ---------- STICKY QUOTE BUTTON ---------- */
+  .sticky-quote-btn{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    z-index:80;
+    background:var(--ink);
+    color:var(--paper);
+    font-weight:600;
+    font-size:0.9rem;
+    padding:14px 24px;
+    border-radius:30px;
+    text-decoration:none;
+    box-shadow:0 12px 28px -8px rgba(20,33,61,0.45);
+    opacity:0;
+    transform:translateY(12px);
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease, background .15s ease;
+  }
+  .sticky-quote-btn.visible{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .sticky-quote-btn:hover{ background:var(--ink-soft); }
+  @media (max-width:600px){ .sticky-quote-btn{ bottom:16px; right:16px; padding:12px 20px; font-size:0.85rem; } }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease; }
+  .reveal-in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- HOVER ELEVATION ---------- */
+  .service-card, .subject-card, .pricing-card, .guide-card{
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .service-card:hover, .subject-card:hover, .guide-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 32px -22px rgba(20,33,61,0.3);
+  }
+  .pricing-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px -24px rgba(20,33,61,0.32);
+  }
 
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
@@ -829,7 +890,7 @@
   <section class="stats-bar">
     <div class="wrap stats-grid">
       <div class="stat-item">
-        <p class="num">200+</p>
+        <p class="num" data-count="200" data-suffix="+">0+</p>
         <p class="label">Projects completed</p>
       </div>
       <div class="stat-item">
@@ -976,47 +1037,61 @@
         <p>Every project gets a fixed quote before work starts — you'll never be surprised by the final invoice. Prices below are starting points; final quotes depend on length and turnaround. Payment is processed securely through Stripe.</p>
       </div>
 
-      <div class="pricing-grid">
+      <div class="pricing-grid pricing-grid-4">
         <div class="pricing-card">
-          <p class="tag">Single document</p>
-          <h3>Essay &amp; Paper Edit</h3>
+          <p class="tag">Starter</p>
+          <h3>Single Document</h3>
           <p class="price">From $0.03<span>/word</span></p>
           <p class="price-note">Typical essay (2,000 words): ~$60</p>
           <ul class="pricing-features">
             <li>Line editing &amp; structural feedback</li>
             <li>One revision round included</li>
-            <li>APA / MLA / Chicago formatting check</li>
+            <li>APA / MLA / Chicago check</li>
             <li>5–10 business day turnaround</li>
           </ul>
-          <a href="#contact" class="btn btn-ghost">Get a quote</a>
+          <a href="/#contact" class="btn btn-ghost">Get a quote</a>
         </div>
 
         <div class="pricing-card featured">
           <p class="tag">Most popular</p>
-          <h3>Application Essay Package</h3>
+          <h3>Professional</h3>
           <p class="price">From $250<span>/package</span></p>
-          <p class="price-note">Up to 3 essays, unlimited light revisions</p>
+          <p class="price-note">Application essays, up to 3 documents</p>
           <ul class="pricing-features">
-            <li>Everything in Essay &amp; Paper Edit</li>
-            <li>Strategy call on positioning &amp; structure</li>
-            <li>Unlimited revisions until submission-ready</li>
+            <li>Everything in Starter</li>
+            <li>Strategy call on positioning</li>
+            <li>Unlimited revisions until ready</li>
             <li>Priority turnaround</li>
           </ul>
-          <a href="#contact" class="btn btn-primary">Get a quote</a>
+          <a href="/#contact" class="btn btn-primary">Get a quote</a>
         </div>
 
         <div class="pricing-card">
-          <p class="tag">Ongoing</p>
-          <h3>Thesis &amp; Dissertation Coaching</h3>
+          <p class="tag">Premium</p>
+          <h3>Dissertation Coaching</h3>
           <p class="price">From $180<span>/chapter</span></p>
-          <p class="price-note">Or a flat project rate for the full thesis</p>
+          <p class="price-note">Or a flat rate for the full thesis</p>
           <ul class="pricing-features">
             <li>Chapter-by-chapter feedback</li>
-            <li>Defense &amp; committee prep session</li>
-            <li>Direct email access between rounds</li>
+            <li>Defense &amp; committee prep</li>
+            <li>Direct access between rounds</li>
             <li>Flexible, ongoing schedule</li>
           </ul>
-          <a href="#contact" class="btn btn-ghost">Get a quote</a>
+          <a href="/#contact" class="btn btn-ghost">Get a quote</a>
+        </div>
+
+        <div class="pricing-card">
+          <p class="tag">Enterprise</p>
+          <h3>Departments &amp; Cohorts</h3>
+          <p class="price">Custom<span>/quote</span></p>
+          <p class="price-note">For programs, labs, or writing centers</p>
+          <ul class="pricing-features">
+            <li>Volume pricing across students</li>
+            <li>Dedicated point of contact</li>
+            <li>Consistent editor assignment</li>
+            <li>Custom invoicing terms</li>
+          </ul>
+          <a href="/#contact" class="btn btn-ghost">Get a quote</a>
         </div>
       </div>
 
@@ -1150,6 +1225,50 @@
         <div class="faq-item">
           <h3>Is my work kept confidential?</h3>
           <p>Yes. Drafts, personal statements, and research are not shared, published, or reused without your written permission.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How much does editing cost?</h3>
+          <p>It depends on document length, project type, and turnaround. See the <a href="/#pricing" style="color:var(--brass);">Pricing</a> section for starting rates, or send your project details for an exact quote — every quote is fixed before work begins.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What's the difference between editing and proofreading?</h3>
+          <p>Proofreading catches surface errors — typos, punctuation, spacing. Editing goes further: structure, argument clarity, transitions, and word choice. Our standard service is a full edit, which includes proofreading as part of the pass, not a separate add-on.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need to create an account to get a quote?</h3>
+          <p>No. The contact form on this page doesn't require an account. An account is only useful if you want to track project status and submit files directly through the client dashboard.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What file formats do you accept?</h3>
+          <p>PDF, Word documents (.doc/.docx), and common image formats (PNG, JPEG) for scanned pages or figures. If your file is in another format, ask before submitting.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What happens after I submit a project?</h3>
+          <p>You'll get a confirmation and, if needed, a follow-up question or two to clarify scope. Once the quote is confirmed, your project is assigned to an editor and you'll get a status update as it moves through review.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can you help with urgent or rush deadlines?</h3>
+          <p>Sometimes — it depends on current availability and document length. Mention your deadline when you reach out; if a rush turnaround isn't possible, you'll be told directly instead of taking on a project that can't realistically be delivered on time.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Will using an editor get my work flagged for plagiarism or AI writing?</h3>
+          <p>No. Editing feedback and suggestions on your own original writing isn't plagiarism, and legitimate editing services are broadly accepted by academic institutions — the line is ghostwriting, which we don't do (see the first question above). If your program has specific policies on editing assistance, it's worth checking those directly.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What if I'm not happy with the edit?</h3>
+          <p>One revision round is included with every project to address anything that doesn't meet the original brief. See the guarantees listed on the Pricing section and the full policy in our Terms of Service.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer discounts for multiple projects or ongoing work?</h3>
+          <p>For longer engagements — like full dissertation coaching across multiple chapters — pricing is often structured as a project rate rather than per-document. Ask when you request a quote.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How do I communicate with my editor during a project?</h3>
+          <p>Primarily by email, with a short intro call available for larger projects like dissertation coaching. You're always in contact with the specific editor assigned to your project, not a general support inbox.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is my payment information secure?</h3>
+          <p>Yes. Payment is processed through Stripe — we never see or store your full card details directly.</p>
         </div>
       </div>
     </div>
@@ -1346,7 +1465,49 @@
   });
 </script>
 
-<footer>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="logo" style="color:var(--paper);">ScholarScript<span style="color:var(--brass-bright);">.</span></a>
+      <p>Academic editing and coaching for students and researchers across the US and Canada.</p>
+      <div class="footer-contact">
+        <a href="mailto:hello@scholarscript.com">hello@scholarscript.com</a>
+        <span>[Add phone number]</span>
+        <span>[Add business address]</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/#services">Dissertation Editing</a></li>
+        <li><a href="/#services">Journal &amp; Paper Editing</a></li>
+        <li><a href="/#services">Admissions Essays</a></li>
+        <li><a href="/#services">Citation &amp; Formatting</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/resources">Guides</a></li>
+        <li><a href="/resources">Blog</a></li>
+        <li><a href="/resources">Downloadable Templates</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/team">About</a></li>
+        <li><a href="/privacy-policy">Privacy</a></li>
+        <li><a href="/terms-of-service">Terms</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
   <div class="wrap footer-row">
     <span>© 2026 ScholarScript. All rights reserved.</span>
     <ul class="footer-links">
@@ -1417,6 +1578,46 @@
         "@type": "Answer",
         "text": "Most single documents are returned within 5 to 10 business days. Dissertation coaching runs on an ongoing schedule set at intake."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my work kept confidential?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Drafts, personal statements, and research are not shared, published, or reused without written permission."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does editing cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cost depends on document length, project type, and turnaround. Every quote is fixed before work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between editing and proofreading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Proofreading catches surface errors like typos and punctuation. Editing goes further, covering structure, argument clarity, transitions, and word choice. The standard service is a full edit, which includes proofreading."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will using an editor get my work flagged for plagiarism or AI writing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Editing feedback on a client's own original writing is not plagiarism, and legitimate editing services are broadly accepted by academic institutions. The line is ghostwriting, which this service does not provide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after I submit a project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll receive a confirmation and possibly a follow-up question to clarify scope, then a fixed quote. Once confirmed, the project is assigned to an editor and moves through review with status updates."
+      }
     }
   ]
 }
@@ -1435,7 +1636,108 @@
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Animated counter — counts up once when the stats bar scrolls
+  // into view, respects prefers-reduced-motion.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const counterEls = document.querySelectorAll('.num[data-count]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      if (prefersReducedMotion) {
+        el.textContent = target + suffix;
+      } else {
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counterEls.forEach(el => counterObserver.observe(el));
+
+  // Scroll-reveal — fades sections up into place as they enter the
+  // viewport. Skips entirely for reduced-motion users.
+  if (!prefersReducedMotion) {
+    const revealTargets = document.querySelectorAll(
+      '.section-head, .service-card, .subject-card, .pricing-card, .portfolio-card, .faq-item, .guide-card'
+    );
+    revealTargets.forEach(el => el.classList.add('reveal'));
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealTargets.forEach(el => revealObserver.observe(el));
+  }
+
+  // Sticky "Get a quote" button — appears after scrolling past the
+  // hero, hidden again once the real contact form is on screen.
+  const stickyBtn = document.getElementById('stickyQuoteBtn');
+  const contactSection = document.getElementById('contact');
+  if (stickyBtn && contactSection) {
+    const heroEl = document.querySelector('.hero');
+    const showObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        stickyBtn.classList.toggle('visible', !entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+    if (heroEl) showObserver.observe(heroEl);
+
+    const hideObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) stickyBtn.classList.remove('visible');
+      });
+    }, { threshold: 0.15 });
+    hideObserver.observe(contactSection);
+  }
+  // Smooth-scroll to in-page sections without ever showing #hash
+  // in the address bar. Handles both same-page links (href="#id")
+  // and cross-page links from other pages (href="/#id") — for the
+  // latter, the browser does briefly navigate with the hash, but
+  // this cleans the URL back to "/" right after scrolling.
+  function scrollToId(id) {
+    const target = document.getElementById(id);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"], a[href^="/#"]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    const id = href.split('#')[1];
+    if (!id) return;
+    e.preventDefault();
+    scrollToId(id);
+    if (window.location.hash) history.replaceState(null, '', '/');
+  });
+
+  // Arrived here from another page via a link like "/#pricing" —
+  // scroll to that section once, then strip the hash from the URL.
+  if (window.location.hash) {
+    const id = window.location.hash.slice(1);
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        scrollToId(id);
+        history.replaceState(null, '', '/');
+      }, 60);
+    });
+  }
 </script>
+
+<a href="/#contact" class="sticky-quote-btn" id="stickyQuoteBtn">Get a quote</a>
 
 </body>
 </html>
