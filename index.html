@@ -25,33 +25,6 @@
 <meta name="twitter:image" content="https://www.scholarscript.com/og-image.png">
 <meta name="twitter:card" content="summary">
 
-<!--
-  ============================================================
-  SITE STATUS — filled in with real details as of last edit
-  ============================================================
-  - Name, location (Texas), and 200+ projects stat are real.
-  - Testimonials section was removed (no real quotes yet) —
-    add it back once you have 2-3 genuine client quotes.
-  - Portfolio cards are labeled as illustrative examples, not
-    real case studies — swap in real ones (with permission)
-    whenever you're ready.
-  - No specific degree/credential is listed in the About or
-    Team sections since none was provided — add yours in if
-    you want it to appear.
-  - Domain is set to scholarscript.com as a placeholder —
-    update every instance (canonical, og:url, robots.txt,
-    sitemap.xml) once you register your real domain.
-  - Payment is referenced as "via Stripe" — you mentioned
-    handling the Stripe integration yourself; the pricing
-    section's "Get a quote" buttons currently link to the
-    contact form, not a live checkout.
-  - The contact form does not submit anywhere yet — it's styled
-    and ready, but needs a backend (Formspree or Netlify Forms).
-  - SEO/AEO: the JSON-LD block near the closing </body> tag
-    has been updated with real name/domain — double check it
-    once you have a final domain.
-  ============================================================
--->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -516,28 +489,68 @@
   }
 
   /* ---------- PROCESS ---------- */
-  .process-list{
+  .process-timeline{
     display:grid;
     grid-template-columns:repeat(4, 1fr);
     gap:28px;
+    position:relative;
+    margin-top:12px;
   }
-  @media (max-width:900px){ .process-list{ grid-template-columns:repeat(2, 1fr); } }
-  @media (max-width:560px){ .process-list{ grid-template-columns:1fr; } }
+  @media (max-width:900px){ .process-timeline{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:560px){ .process-timeline{ grid-template-columns:1fr; } }
 
-  .process-step .num{
+  .process-timeline::before{
+    content:'';
+    position:absolute;
+    top:34px;
+    left:calc(12.5% + 2px);
+    right:calc(12.5% + 2px);
+    height:2px;
+    background:repeating-linear-gradient(to right, var(--brass) 0, var(--brass) 8px, transparent 8px, transparent 16px);
+    z-index:0;
+  }
+  @media (max-width:900px){ .process-timeline::before{ display:none; } }
+
+  .process-step{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    padding-top:0;
+    border-top:none;
+  }
+  .process-icon{
+    width:68px; height:68px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--paper);
     font-family:var(--mono);
     font-size:0.85rem;
-    color:var(--brass);
+    font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    box-shadow:0 10px 24px -10px rgba(20,33,61,0.5);
+    transition:transform .2s ease;
+  }
+  .process-step:hover .process-icon{ transform:scale(1.08); }
+  .process-emoji{
+    position:absolute;
+    bottom:-8px; right:-8px;
+    width:28px; height:28px;
+    background:var(--brass-bright);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.85rem;
+    border:2px solid var(--paper-dim);
   }
   .process-step h3{
     font-family:var(--serif);
     font-size:1.15rem;
     color:var(--ink);
-    margin-top:10px;
+    margin-top:4px;
     font-weight:600;
   }
   .process-step p{ color:var(--gray); font-size:0.92rem; margin-top:8px; }
-  .process-step{ border-top:2px solid var(--ink); padding-top:16px; }
 
   /* ---------- PORTFOLIO ---------- */
   .portfolio-grid{
@@ -1128,26 +1141,55 @@
         <p class="eyebrow">How a project runs</p>
         <h2>Four steps, start to submission-ready.</h2>
       </div>
-      <div class="process-list">
+      <div class="process-timeline">
         <div class="process-step">
-          <p class="num">01</p>
+          <div class="process-icon">01<span class="process-emoji">&#128228;</span></div>
           <h3>Intake</h3>
           <p>You send your draft plus any style guide, rubric, or program requirements.</p>
         </div>
         <div class="process-step">
-          <p class="num">02</p>
+          <div class="process-icon">02<span class="process-emoji">&#128270;</span></div>
           <h3>Review</h3>
           <p>We read for argument, structure, and clarity first — line edits come after the bones are solid.</p>
         </div>
         <div class="process-step">
-          <p class="num">03</p>
+          <div class="process-icon">03<span class="process-emoji">&#9998;</span></div>
           <h3>Feedback</h3>
           <p>Tracked changes plus margin comments explaining the reasoning behind each suggestion.</p>
         </div>
         <div class="process-step">
-          <p class="num">04</p>
+          <div class="process-icon">04<span class="process-emoji">&#9989;</span></div>
           <h3>Follow-up</h3>
           <p>A short call or written Q&amp;A to walk through anything that's still unclear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI HONESTY ================= -->
+  <section id="ai-policy">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Where AI fits, and where it doesn't</p>
+        <h2>Human editors. Honest about AI.</h2>
+        <p>AI tools are part of how a lot of research and writing happens now. Here's exactly where we stand on it.</p>
+      </div>
+      <div class="subject-grid">
+        <div class="subject-card">
+          <h3>Every edit is human</h3>
+          <p>Your draft is read and edited personally by an assigned editor — never run through an AI tool and handed back unreviewed. The feedback, the reasoning in the margin notes, all of it is a person's judgment.</p>
+        </div>
+        <div class="subject-card">
+          <h3>Already used AI to draft or research?</h3>
+          <p>We can help. We'll edit and coach an AI-assisted draft into something that genuinely reflects your own understanding and voice — not just polish the surface, but make sure you actually own the thinking behind it.</p>
+        </div>
+        <div class="subject-card">
+          <h3>We coach responsible use, not evasion</h3>
+          <p>We will not help disguise AI-generated writing to evade detection tools — that's not a service we offer, and we'd tell you directly if that's what you were asking for. The goal is always work you can stand behind, submitted under your own name, honestly.</p>
+        </div>
+        <div class="subject-card">
+          <h3>Check your program's policy</h3>
+          <p>AI policies vary widely by institution and even by individual course. If you're unsure what's allowed, that's worth confirming with your instructor before you submit — we're happy to help you think through how to stay within it.</p>
         </div>
       </div>
     </div>
